@@ -18,7 +18,7 @@ class CatFixApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(338,773),
       child: MaterialApp.router(
-        title: 'Kalculate',
+        title: 'CAT Fix',
         theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
         routerConfig: router,

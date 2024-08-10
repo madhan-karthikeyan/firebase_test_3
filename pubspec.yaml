@@ -23,3 +23,4 @@ flutter:
   uses-material-design: true
   assets:
   - assets/construction_login_image.jpeg
+  - assets/CAT_Icon.jpg

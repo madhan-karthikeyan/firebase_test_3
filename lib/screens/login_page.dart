@@ -23,22 +23,26 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'CAT Fix',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 83.02,
-                      fontFamily: 'Khand',
-                      fontWeight: FontWeight.w700,
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
+                      SizedBox(width: 15,),
+                      Image.asset(
+                        "assets/CAT_Icon.jpg",
+                        cacheWidth: 224,
+                        cacheHeight: 102,
+                      ),
+                    ],
+                  ),
+                  
+                  Container(
+                    height: 272,
+                    child: Expanded(
+                      child: Image.asset(
+                        "assets/construction_login_image.jpeg",
+                        //fit: BoxFit.contain,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Image.asset(
-                    "assets/construction_login_image.jpeg",
-                    fit: BoxFit.contain,
                   ),
                   const SizedBox(
                     height: 28,

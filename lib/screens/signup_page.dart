@@ -1,11 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_test_3/widgets/text_field_name.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 class SignupPage extends StatelessWidget {
+  SignupPage({super.key});
+
+  final TextEditingController userNameController_ = TextEditingController();
+  final TextEditingController dobController_ = TextEditingController();
   final TextEditingController emailController_ = TextEditingController();
 
   final TextEditingController passwordController_ = TextEditingController();
-  SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,25 +25,32 @@ class SignupPage extends StatelessWidget {
               child: Column(
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'CAT Fix',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 83.02,
-                      fontFamily: 'Khand',
-                      fontWeight: FontWeight.w700,
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Image.asset(
+                        "assets/CAT_Icon.jpg",
+                        cacheWidth: 224,
+                        cacheHeight: 102,
+                      ),
+                    ],
+                  ),
+
+                  Container(
+                    height: 272,
+                    width: double.maxFinite,
+                    child: Expanded(
+                      child: Image.network(
+                        "assets/construction_login_image.jpeg",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
-                  ),
-                  Image.asset(
-                    "assets/construction_login_image.jpeg",
-                    fit: BoxFit.contain,
-                  ),
-                  const SizedBox(
-                    height: 28,
+                    height: 10,
                   ),
                   // const Text(
                   //   "Let's get started",
@@ -52,6 +63,15 @@ class SignupPage extends StatelessWidget {
                   //     //height: 0,
                   //   ),
                   //),
+                  
+                  TextFieldInput(
+                      controller: userNameController_,
+                      icon: Icons.supervised_user_circle),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFieldInput(
+                      controller: dobController_, icon: Icons.calendar_today),
                   const SizedBox(
                     height: 10,
                   ),
@@ -65,12 +85,68 @@ class SignupPage extends StatelessWidget {
                   const SizedBox(
                     height: 14,
                   ),
+                  Padding(
+                    
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Icon(Icons.check_box),
+                        Column(
+                          children: [
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'I have read the ',
+                                    style: TextStyle(
+                                      color: Color(0xFF5E626B),
+                                      fontSize: 12,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400,
+                                      height: 0,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Terms and conditions ',
+                                    style: TextStyle(
+                                      color: Color(0xFF0386D0),
+                                      fontSize: 12,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400,
+                                      height: 0,
+                                    ),
+                                  ),
+                                  
+                                ],
+                              ),
+                            ),
+                            Text.rich(
+                              TextSpan(children: [
+                                TextSpan(
+                                text: 'and agree to adhere to them',
+                                style: TextStyle(
+                                  color: Color(0xFF525252),
+                                  fontSize: 12,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0,
+                                ),
+                              ),
+                              ])
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 13,),
                   GestureDetector(
-                    onTap: (){ 
+                    onTap: () {
                       context.go("/homepage");
                     },
                     child: Padding(
-                      
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Container(
                         width: double.maxFinite,
@@ -102,73 +178,14 @@ class SignupPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 32,),
-                  GestureDetector(
-                    onTap: () {
-                      context.go('/signuppage');
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Already have an account? ',
-                          style: TextStyle(
-                            color: Color(0xFF5E626B),
-                            fontSize: 16,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                            height: 0,
-                          ),
-                      
-                        ),
-                        Text(
-                                'Sign up',
-                                style: TextStyle(
-                                  color: Color(0xFF0386D0),
-                                  fontSize: 16,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  height: 0,
-                                ),),
-                    SizedBox(height: 34,),
-                    
-                      ],
-                    ),
-                  ),
-                  Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: 'By logging in you are agreeing our ',
-                  style: TextStyle(
-                    color: Color(0xFF5E626B),
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
-                  ),
-                ),
-                TextSpan(
-                  text: 'Term and privacy policy',
-                  style: TextStyle(
-                    color: Color(0xFF0386D0),
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
-                  ),
-                ),
-              
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
+                  SizedBox(height: 13,),
+                  
                 ],
               ),
             ),
           ),
         ),
       ),
-    );;
+    );
   }
 }
