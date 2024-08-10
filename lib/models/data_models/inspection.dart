@@ -1,56 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Inspection {
-  String inspectionID;
-  String truckSerialNo;
-  String inspectorName;
-  int inspectorID;
-  String date;
-  String time;
-  String customerID;
-  Map<String, double> coord;
-  int serviceHoursMeters;
+  String? id;
+  DateTime? date;
+  String? technicianId;
+  String? customerId;
+  String? status;
 
-  Inspection({
-    required this.inspectionID,
-    required this.truckSerialNo,
-    required this.inspectorName,
-    required this.inspectorID,
-    required this.date,
-    required this.time,
-    required this.customerID,
-    required this.coord,
-    required this.serviceHoursMeters,
-  });
+  Inspection({this.id, this.date, this.technicianId, this.customerId, this.status});
 
-  // Convert Inspection to a Firestore document (Map)
-  Map<String, dynamic> toMap() {
-    return {
-      'inspectionID': inspectionID,
-      'truckSerialNo': truckSerialNo,
-      'inspectorName': inspectorName,
-      'inspectorID': inspectorID,
-      'date': date,
-      'time': time,
-      'customerID': customerID,
-      'coord': coord,
-      'serviceHoursMeters': serviceHoursMeters,
-    };
-  }
+  factory Inspection.fromFirestore(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>?;
 
-  // Create an Inspection from a Firestore document (Map)
-  factory Inspection.fromMap(Map<String, dynamic> map) {
     return Inspection(
-      inspectionID: map['inspectionID'] ?? '',
-      truckSerialNo: map['truckSerialNo'] ?? '',
-      inspectorName: map['inspectorName'] ?? '',
-      inspectorID: map['inspectorID'] ?? 0,
-      date: map['date'] ?? '',
-      time: map['time'] ?? '',
-      customerID: map['customerID'] ?? '',
-      coord: Map<String, double>.from(map['coord'] ?? {}),
-      serviceHoursMeters: map['serviceHoursMeters'] ?? 0,
+      id: doc.id,
+      date: data?['date'] != null ? (data!['date'] as Timestamp).toDate() : null,
+      technicianId: data?['technicianId'],
+      customerId: data?['customerId'],
+      status: data?['status'] ?? 'Pending',
     );
   }
-}
 
-// Define similar models for Tires, Battery, Exterior, Engine, Technician, Customer, and Feedback
+  Map<String, dynamic> toFirestore() {
+    return {
+      'date': date,
+      'technicianId': technicianId,
+      'customerId': customerId,
+      'status': status,
+    };
+  }
+}
