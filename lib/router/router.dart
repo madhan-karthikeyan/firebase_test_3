@@ -1,9 +1,10 @@
+import 'package:firebase_test_3/screens/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_test_3/screens/home_page.dart';
 
 final router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/loginpage',
   routes: <GoRoute>[
     GoRoute(
       path: '/homepage',
@@ -13,7 +14,7 @@ final router = GoRouter(
     GoRoute(
       path: '/loginpage',
       pageBuilder: (context, state) =>
-          const MaterialPage(child: HomePage()),
+          MaterialPage(child: LoginPage()),
     ),
   ],
 );
