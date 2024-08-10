@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFE8E4AB),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           height: double.maxFinite,
           width: double.maxFinite,
           child: Center(
@@ -23,10 +23,14 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: [
-                      SizedBox(width: 15,),
+                      const SizedBox(
+                        width: 15,
+                      ),
                       Image.asset(
                         "assets/CAT_Icon.jpg",
                         cacheWidth: 224,
@@ -34,15 +38,17 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  
-                  Container(
-                    height: 272,
-                    child: Expanded(
-                      child: Image.asset(
+
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Image.asset(
                         "assets/construction_login_image.jpeg",
                         //fit: BoxFit.contain,
                       ),
-                    ),
+                    ],
                   ),
                   const SizedBox(
                     height: 28,
@@ -72,20 +78,19 @@ class LoginPage extends StatelessWidget {
                     height: 14,
                   ),
                   GestureDetector(
-                    onTap: (){ 
+                    onTap: () {
                       context.go("/homepage");
                     },
                     child: Padding(
-                      
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Container(
                         width: double.maxFinite,
                         height: 50.24,
                         decoration: ShapeDecoration(
-                          color: Color(0xFFF2CB63),
+                          color: const Color(0xFFF2CB63),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
-                          shadows: [
+                          shadows: const [
                             BoxShadow(
                               color: Color(0x3F000000),
                               blurRadius: 4,
@@ -94,7 +99,7 @@ class LoginPage extends StatelessWidget {
                             )
                           ],
                         ),
-                        child: Text(
+                        child: const Text(
                           'Login',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -108,12 +113,14 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 32,),
+                  const SizedBox(
+                    height: 32,
+                  ),
                   GestureDetector(
                     onTap: () {
                       context.go('/signuppage');
                     },
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
@@ -125,50 +132,50 @@ class LoginPage extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             height: 0,
                           ),
-                      
                         ),
                         Text(
-                                'Sign up',
-                                style: TextStyle(
-                                  color: Color(0xFF0386D0),
-                                  fontSize: 16,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  height: 0,
-                                ),),
-                    SizedBox(height: 34,),
-                    
+                          'Sign up',
+                          style: TextStyle(
+                            color: Color(0xFF0386D0),
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            height: 0,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 34,
+                        ),
                       ],
                     ),
                   ),
-                  Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: 'By logging in you are agreeing our ',
-                  style: TextStyle(
-                    color: Color(0xFF5E626B),
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
+                  const Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'By logging in you are agreeing our ',
+                          style: TextStyle(
+                            color: Color(0xFF5E626B),
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            height: 0,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Term and privacy policy',
+                          style: TextStyle(
+                            color: Color(0xFF0386D0),
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            height: 0,
+                          ),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                TextSpan(
-                  text: 'Term and privacy policy',
-                  style: TextStyle(
-                    color: Color(0xFF0386D0),
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
-                  ),
-                ),
-              
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
                 ],
               ),
             ),

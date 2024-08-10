@@ -16,7 +16,7 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFE8E4AB),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           height: double.maxFinite,
           width: double.maxFinite,
           child: Center(
@@ -25,29 +25,25 @@ class SignupPage extends StatelessWidget {
               child: Column(
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Image.asset(
                         "assets/CAT_Icon.jpg",
-                        cacheWidth: 224,
-                        cacheHeight: 102,
+                        cacheWidth: 112,
+                        cacheHeight: 51,
                       ),
                     ],
                   ),
 
-                  Container(
-                    height: 272,
-                    width: double.maxFinite,
-                    child: Expanded(
-                      child: Image.network(
-                        "assets/construction_login_image.jpeg",
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  Image.asset(
+                    "assets/construction_login_image.jpeg",
+                    fit: BoxFit.cover,
                   ),
                   const SizedBox(
                     height: 10,
@@ -63,7 +59,7 @@ class SignupPage extends StatelessWidget {
                   //     //height: 0,
                   //   ),
                   //),
-                  
+
                   TextFieldInput(
                       controller: userNameController_,
                       icon: Icons.supervised_user_circle),
@@ -85,11 +81,9 @@ class SignupPage extends StatelessWidget {
                   const SizedBox(
                     height: 14,
                   ),
-                  Padding(
-                    
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Row(
-                      
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Icon(Icons.check_box),
@@ -118,13 +112,11 @@ class SignupPage extends StatelessWidget {
                                       height: 0,
                                     ),
                                   ),
-                                  
                                 ],
                               ),
                             ),
-                            Text.rich(
-                              TextSpan(children: [
-                                TextSpan(
+                            Text.rich(TextSpan(children: [
+                              TextSpan(
                                 text: 'and agree to adhere to them',
                                 style: TextStyle(
                                   color: Color(0xFF525252),
@@ -134,14 +126,15 @@ class SignupPage extends StatelessWidget {
                                   height: 0,
                                 ),
                               ),
-                              ])
-                            )
+                            ]))
                           ],
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 13,),
+                  const SizedBox(
+                    height: 13,
+                  ),
                   GestureDetector(
                     onTap: () {
                       context.go("/homepage");
@@ -152,10 +145,10 @@ class SignupPage extends StatelessWidget {
                         width: double.maxFinite,
                         height: 50.24,
                         decoration: ShapeDecoration(
-                          color: Color(0xFFF2CB63),
+                          color: const Color(0xFFF2CB63),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
-                          shadows: [
+                          shadows: const [
                             BoxShadow(
                               color: Color(0x3F000000),
                               blurRadius: 4,
@@ -164,7 +157,7 @@ class SignupPage extends StatelessWidget {
                             )
                           ],
                         ),
-                        child: Text(
+                        child: const Text(
                           'Login',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -178,8 +171,9 @@ class SignupPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 13,),
-                  
+                  const SizedBox(
+                    height: 13,
+                  ),
                 ],
               ),
             ),

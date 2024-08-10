@@ -7,7 +7,7 @@ class InspectionWidget extends StatelessWidget {
   final String address;
   final String date;
 
-  const InspectionWidget({
+  const InspectionWidget({super.key, 
     required this.truckNumber,
     required this.duration,
     required this.inspectionType,
@@ -20,18 +20,18 @@ class InspectionWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (date != null) ...[
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
-              date,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+        ...[
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            date,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
-        ],
+        ),
+      ],
         Container(
-          margin: EdgeInsets.symmetric(vertical: 4.0),
-          padding: EdgeInsets.all(16.0),
+          margin: const EdgeInsets.symmetric(vertical: 4.0),
+          padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             color: Colors.amber[200],
             borderRadius: BorderRadius.circular(8.0),
@@ -41,25 +41,25 @@ class InspectionWidget extends StatelessWidget {
             children: [
               Text(
                 truckNumber,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Row(
                 children: [
-                  Icon(Icons.access_time, size: 16),
-                  SizedBox(width: 4),
+                  const Icon(Icons.access_time, size: 16),
+                  const SizedBox(width: 4),
                   Text(duration),
-                  SizedBox(width: 16),
-                  Icon(Icons.description, size: 16),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 16),
+                  const Icon(Icons.description, size: 16),
+                  const SizedBox(width: 4),
                   Text(inspectionType),
                 ],
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Row(
                 children: [
-                  Icon(Icons.location_pin, size: 16),
-                  SizedBox(width: 4),
+                  const Icon(Icons.location_pin, size: 16),
+                  const SizedBox(width: 4),
                   Expanded(child: Text(address)),
                 ],
               ),
@@ -67,6 +67,6 @@ class InspectionWidget extends StatelessWidget {
           ),
         ),
       ],
-    );;
+    );
   }
 }

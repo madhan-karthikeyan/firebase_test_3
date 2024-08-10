@@ -16,7 +16,7 @@ class TextFieldInput extends StatelessWidget {
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
-                side: BorderSide(
+                side: const BorderSide(
                   width: 1,
                   strokeAlign: BorderSide.strokeAlignOutside,
                   color: Color(0xFF6D6D6D),
@@ -27,12 +27,12 @@ class TextFieldInput extends StatelessWidget {
             child: Center(
               child: Row(  
                 children: [ 
-                  SizedBox(width: 16,),
+                  const SizedBox(width: 16,),
                   Icon(icon_, size: 24,),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration(border: InputBorder.none),
+                      decoration: const InputDecoration(border: InputBorder.none),
                       controller: controller_, ) )
                 ],
               ),
