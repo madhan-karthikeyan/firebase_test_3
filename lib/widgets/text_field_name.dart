@@ -30,8 +30,7 @@ class TextFieldInput extends StatelessWidget {
                   SizedBox(width: 16,),
                   Icon(icon_, size: 24,),
                   SizedBox(width: 10,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints.tight(Size(315, 50)),
+                  Expanded(
                     child: TextField(
                       decoration: InputDecoration(border: InputBorder.none),
                       controller: controller_, ) )

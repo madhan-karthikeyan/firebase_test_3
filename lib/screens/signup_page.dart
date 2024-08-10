@@ -1,13 +1,11 @@
-import 'package:firebase_test_3/widgets/text_field_name.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_test_3/widgets/text_field_name.dart';
 import 'package:go_router/go_router.dart';
-
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-
+class SignupPage extends StatelessWidget {
   final TextEditingController emailController_ = TextEditingController();
 
   final TextEditingController passwordController_ = TextEditingController();
+  SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -171,6 +169,6 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
-    );
+    );;
   }
 }
